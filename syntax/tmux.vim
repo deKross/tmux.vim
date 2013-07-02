@@ -13,7 +13,7 @@ endif
 setlocal iskeyword+=-
 syntax case match
 
-syn keyword tmuxAction  any current none
+syn keyword tmuxAction  any current none bold underscore default italic
 syn keyword tmuxBoolean off on
 
 syn keyword tmuxCmds detach[-client] ls list-sessions neww new-window
@@ -69,6 +69,7 @@ syn keyword tmuxOptsSet destroy-unattached exit-unattached set-clipboard
 syn keyword tmuxOptsSet bell-on-alert mouse-select-window mouse-utf8
 syn keyword tmuxOptsSet mouse-resize-pane
 syn keyword tmuxOptsSet message-[command-]fg renumber-windows visual-silence
+syn keyword tmuxOptsSet message-fg message-bg message-attr
 
 syn keyword tmuxOptsSetw monitor-activity aggressive-resize force-width
 syn keyword tmuxOptsSetw force-height remain-on-exit uft8 mode-fg mode-bg
@@ -88,11 +89,12 @@ syn keyword tmuxOptsSetw window-status-content-bg window-status-content-fg
 syn keyword tmuxOptsSetw pane-base-index other-pane-height other-pane-width
 syn keyword tmuxOptsSetw allow-rename c0-change-interval c0-change-trigger
 syn keyword tmuxOptsSetw layout-history-limit monitor-silence utf8 wrap-search
+syn keyword tmuxOptsSetw window-status-separator window-status-last-attr
 
 syn keyword tmuxTodo FIXME NOTE TODO XXX contained
 
 syn match tmuxKey               /\(C-\|M-\|\^\)\+\S\+/  display
-syn match tmuxNumber            /\d\+/                  display
+syn match tmuxNumber            /\(colour\)\?\d\+/                  display
 syn match tmuxOptions           /\s-\a\+/               display
 syn match tmuxVariable          /\w\+=/                 display
 syn match tmuxVariableExpansion /\${\=\w\+}\=/          display
